@@ -1,5 +1,6 @@
 import React from 'react';
 import ScreenRow from './screenRow';
+import classes from './screen.css';
 
 const Screen = (props) => {
   return (

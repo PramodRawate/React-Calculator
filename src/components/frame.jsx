@@ -1,6 +1,7 @@
 import React, {Component} from 'react'; 
 import Screen from './screen';
 import Button from './button';
+import classes from './frame.css';
 
 class Frame extends Component {
     constructor() {
@@ -10,47 +11,41 @@ class Frame extends Component {
           answer: ''
         }
         this.handleClick = this.handleClick.bind(this);
-    }
+    }    
 
-    
     render() {
       return (
         <div className="frame">
           <div className="calculator-title">
-            R_N Calculator
+            Simple Calculator
           </div>
           <Screen question={this.state.question} answer={this.state.answer}/>
           <div className="button-row">
-            <Button label={'1'} handleClick={this.handleClick} type='input' />
-            <Button label={'2'} handleClick={this.handleClick} type='input' />
-            <Button label={'3'} handleClick={this.handleClick} type='input' />
-            <Button label={'4'} handleClick={this.handleClick} type='input' />
-            <Button label={'-'} handleClick={this.handleClick} type='action' />
-            <Button label={'+'} handleClick={this.handleClick} type='action' />
+            {this.createButtons(0,4,[0,1,2,3,4])}
+          </div>
+
+          <div className="button-row">
+          {this.createButtons(5,9,[5,6,7,8,9])}
           </div>
           <div className="button-row">
-            <Button label={'5'} handleClick={this.handleClick} type='input' />
-            <Button label={'6'} handleClick={this.handleClick} type='input' />
-            <Button label={'7'} handleClick={this.handleClick} type='input' />
-            <Button label={'8'} handleClick={this.handleClick} type='input' />
-            <Button label={'*'} handleClick={this.handleClick} type='action' />
-            <Button label={'/'} handleClick={this.handleClick} type='action' />
-          </div>
-          <div className="button-row">
-            <Button label={'9'} handleClick={this.handleClick} type='input' />
-            <Button label={'.'} handleClick={this.handleClick} type='input' />
-            <Button label={'0'} handleClick={this.handleClick} type='input' />
-            <Button label={'Cls'} handleClick={this.handleClick} type='action' />
-            <Button label={'='} handleClick={this.handleClick} type='action' />
+            {this.createButtons(0,4,['+','-','*','/','='])}
           </div>
         </div>
       );
     }
+        
+    createButtons(start,end,display) {
+      var buttons = [];
+        for (let i = start,j=0; i <= end; i++,j++) {
+          buttons.push(<Button label={display[j]} handleClick={this.handleClick} type='input' />)
+        }
+      return buttons
+    }
+
     handleClick(event){
-      const value = event.target.value; // get the value from the target element (button)
+      const value = event.target.value;
       switch (value) {
-        case '=': { // if it's an equal sign, use the eval module to evaluate the question
-          // convert the answer (in number) to String
+        case '=': { 
           const answer = eval(this.state.question).toString();
           // update answer in our state.
           this.setState({ answer });
