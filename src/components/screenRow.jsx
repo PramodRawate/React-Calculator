@@ -4,7 +4,7 @@ import classes from './screenRow.css';
 
 const ScreenRow = (props) => {
     return (
-      <div className="screen-row">
+      <div className={classes.screenRow}>
         <input type="text" readOnly value={props.value}/>
       </div>
     )

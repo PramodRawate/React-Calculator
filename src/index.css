@@ -4,11 +4,3 @@ body {
   background: black;
   color: red;
 }
-
-#root {
-  text-align: center;
-  position: relative;
-  margin:200px auto;
-  background: yellow;
-  width:400px;
-}

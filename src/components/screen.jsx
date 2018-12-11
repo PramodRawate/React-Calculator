@@ -1,10 +1,10 @@
 import React from 'react';
 import ScreenRow from './screenRow';
-import classes from './screen.css';
+// import classes from './screen.css';
 
 const Screen = (props) => {
   return (
-    <div className="screen">
+    <div>
       <ScreenRow value={props.question}/>
       <ScreenRow value={props.answer}/>
     </div>

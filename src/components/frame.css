@@ -1,0 +1,21 @@
+.frame {
+    margin: 0 auto;
+    border: 2px solid blue;
+    width: 300px;
+    padding: 20px;
+}
+
+.calculatorTitle {
+    font-size: 25px;
+    color: yellow;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+
+.buttonRow > input {
+width: 50px;
+height: 40px;
+background-color: dodgerblue;
+font-weight: bold;
+}
